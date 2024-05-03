@@ -1,4 +1,6 @@
-import TaskList from "@/components/TaskList";
+import AddTask from "@/components/AddTask";
+import TaskList from "@/components/ListTask";
+import { TaskContextProvider } from "@/context/TaskContext";
 
 const Home = async ({}) => {
   return (
@@ -8,7 +10,10 @@ const Home = async ({}) => {
       </h1>
 
       <div className="grid place-items-center">
-        <TaskList />
+        <TaskContextProvider>
+          <TaskList />
+          <AddTask />
+        </TaskContextProvider>
       </div>
     </main>
   );
