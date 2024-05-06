@@ -18,7 +18,7 @@ export const TaskContextProvider = ({ children } : {children: React.ReactNode;})
     };
 
     const removeTask = (taskIndex:number) => {
-        setTasks(tasks.filter((_, index) => taskIndex !== index));
+        setTasks(tasks.filter((_:string, index: number) => taskIndex !== index));
     };
 
     return (
