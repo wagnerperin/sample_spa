@@ -6,7 +6,7 @@ import { useContext } from "react";
 
 const Login = async ({}) => {
     const {register, handleSubmit} = useForm<SignIdData>();
-    const { login, resultado } = useContext(AuthContext);
+    const { login, authError } = useContext(AuthContext);
 
     const handleLogin = async (data : SignIdData) => {
         await login(data);
@@ -26,14 +26,14 @@ const Login = async ({}) => {
                 <label htmlFor="password">Senha: </label>
                 <input 
                     {...register('password')}
-                    type="text" 
+                    type="password" 
                     name='password' 
                     id='password' 
                     placeholder="password" 
                 />
                 <input type="submit" value="Acessar" />
             </form>
-            <p>{resultado}</p>
+            {authError && <p>{authError}</p>}
         </div>
     );
 }
